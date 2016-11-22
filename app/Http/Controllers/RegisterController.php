@@ -4,10 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Illuminate\Http\Response;
 use Laravel\Socialite\Contracts\Factory as Socialite;
 
-class AuthController extends Controller
+class RegisterController extends Controller
 {
     /**
      * @var Socialite
@@ -26,9 +25,8 @@ class AuthController extends Controller
     }
 
     /**
-     * Redirect the user to the GitHub authentication page.
-     *
-     * @return Response
+     * Redirect the user to the Google authentification page.
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function redirectToProvider()
     {
@@ -36,7 +34,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Obtain the user information from GitHub.
+     * Obtain the user information from Google.
      *
      * @return \Illuminate\Http\RedirectResponse
      */
