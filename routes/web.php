@@ -4,5 +4,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('register', 'Auth\AuthController@redirectToProvider')->name('register');
-Route::get('confirmation', 'Auth\AuthController@handleProviderCallback');
+Route::get('register', 'RegisterController@redirectToProvider')->name('register');
+Route::get('confirmation', 'RegisterController@handleProviderCallback');
