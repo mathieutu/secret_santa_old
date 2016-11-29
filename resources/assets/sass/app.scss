@@ -6,6 +6,7 @@
 html {
     font-size: 16px;
 }
+
 @media (min-height: 1000px), (min-width: 1300px) {
     html {
         font-size: 24px;
@@ -30,13 +31,13 @@ body {
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-height:1000px){
+@media (max-height: 1000px) {
     .white-box {
         max-height: 700px;
     }
 }
 
-@media (max-width:1300px){
+@media (max-width: 1300px) {
     .white-box {
         max-width: 850px;
     }
@@ -59,7 +60,7 @@ h1 {
 
 .row {
     display: flex;
-    height: 90%;
+    height: 95%;
 
     .half-col {
         width: 50%;
@@ -79,10 +80,23 @@ h1 {
         }
     }
 }
+
 footer {
     display: flex;
-    height: 10%;
+    height: 5%;
     img {
         margin: auto;
+        max-width: 200px;
+        max-height: 90%;
     }
+}
+
+.credit {
+    font-family: abadi_mt_stdlight, serif;
+    color: $redDark;
+    position: fixed;
+    font-size: 0.75em;
+    bottom: 0.5em;
+    right: 1em;
+    text-decoration: none;
 }
