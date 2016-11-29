@@ -1,9 +1,88 @@
-
 // Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
-
+@import "fonts";
 // Variables
 @import "variables";
 
-// Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+html {
+    font-size: 16px;
+}
+@media (min-height: 1000px), (min-width: 1300px) {
+    html {
+        font-size: 24px;
+    }
+}
+
+body {
+    background: url('../img/background.png') no-repeat fixed center center;
+    background-size: cover;
+    height: 100vh;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.white-box {
+    background-color: white;
+    height: 70%;
+    width: 95%;
+    max-width: 1200px;
+    max-height: 800px;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-height:1000px){
+    .white-box {
+        max-height: 700px;
+    }
+}
+
+@media (max-width:1300px){
+    .white-box {
+        max-width: 850px;
+    }
+}
+
+h1 {
+    font-family: dancing_scriptbold, serif;
+    color: $redLight;
+    align-self: flex-start;
+    font-size: 4em;
+    font-weight: normal;
+    line-height: 1.2em;
+    margin: 1rem 0;
+    span {
+        display: block;
+        font-size: 1.5em;
+        margin-left: 1em;
+    }
+}
+
+.row {
+    display: flex;
+    height: 90%;
+
+    .half-col {
+        width: 50%;
+        height: 100%;
+        padding: 20px 5%;
+        display: flex;
+
+        &:first-child {
+            align-items: center;
+            img {
+                margin: 3% auto;
+                max-height: 70%;
+                max-width: 100%;
+            }
+        }
+        &:last-child {
+        }
+    }
+}
+footer {
+    display: flex;
+    height: 10%;
+    img {
+        margin: auto;
+    }
+}

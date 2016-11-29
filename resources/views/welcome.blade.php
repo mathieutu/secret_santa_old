@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-    <a href="{{ route('register') }}" class="btn btn-primary">
+    {{--<a href="{{ route('register') }}" class="">
         S'inscrire
-    </a>
+    </a>--}}
 @endsection
