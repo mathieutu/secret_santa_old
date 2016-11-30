@@ -2,12 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Foundation\Bus\DispatchesJobs;
+use App\Models\User;
 use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Session\Store;
 
 class Controller extends BaseController
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    public function home(Store $session)
+    {
+
+        if ($session->has('error')) {
+            return view('error')->withUser($session->get('user'));
+        }
+        if ($session->has('user')) {
+            return view('confirmation')->withUser($session->get('user'));
+        }
+
+        return view('welcome');
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
@@ -37,12 +38,14 @@ class AccountLinked extends Notification
      *
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
-    public function toMail($notifiable)
+    public function toMail(User $user)
     {
         return (new MailMessage)
-            ->line('Tu as bien été enregistré pour le Secret Santa.')
-            ->line('Tu recevras très bientôt un email avec le nom de la personne qui te sera choisie.')
-            ->line('Merci et à très vite ! ;)');
+            ->line('Ho ! Ho ! Ho !')
+            ->line('Bonjour, '.$user->first_name.',')
+            ->line('J\'ai bien noté ton nom pour le Secret Santa de '.config('app.company_name').'.')
+            ->line('Tu recevras très bientôt une missive avec le nom du collègue à qui tu devras faire un cadeau.')
+            ->line('Merci et à très vite !');
     }
 
     /**

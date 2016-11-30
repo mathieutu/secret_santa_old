@@ -23,7 +23,7 @@ body {
 }
 
 .white-box {
-    background-color: white;
+    background-color: $white;
     height: 70%;
     width: 95%;
     max-width: 1200px;
@@ -67,6 +67,7 @@ h1 {
         height: 100%;
         padding: 20px 5%;
         display: flex;
+        flex-wrap: wrap;
 
         &:first-child {
             align-items: center;
@@ -77,6 +78,7 @@ h1 {
             }
         }
         &:last-child {
+            align-content: flex-start;
         }
     }
 }
@@ -93,10 +95,49 @@ footer {
 
 .credit {
     font-family: abadi_mt_stdlight, serif;
-    color: $redDark;
+    color: $redLight;
     position: fixed;
     font-size: 0.75em;
     bottom: 0.5em;
     right: 1em;
     text-decoration: none;
+}
+.center {
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    font-family: abadi_mt_stdregular, serif;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 2px solid $redLight;
+    border-radius: 1px;
+    padding: 7px 20px;
+    color: $redLight;
+    text-decoration: none;
+    .icn-gift {
+        &:before {
+            content: "__";
+            background: url("../img/icon-gift.png") no-repeat;
+            background-size: 0.8em;
+            color: transparent;
+            margin-right: 10px;
+        }
+    }
+    &:hover {
+        background-color: $redLight;
+        color: $white;
+        .icn-gift {
+            &:before {
+                background: url("../img/icon-gift-hover.png") no-repeat;
+                background-size: 0.8em;
+            }
+        }
+    }
+}
+.message {
+    font-family: abadi_mt_stdlight, serif;
+
 }

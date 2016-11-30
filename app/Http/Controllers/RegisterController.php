@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Notifications\AccountLinked;
+use GuzzleHttp\Exception\RequestException;
+use Illuminate\Routing\Controller as BaseController;
 use Laravel\Socialite\Contracts\Factory as Socialite;
 
-class RegisterController extends Controller
+
+class RegisterController extends BaseController
 {
     /**
      * @var Socialite
@@ -40,11 +43,24 @@ class RegisterController extends Controller
      */
     public function handleProviderCallback()
     {
-        $googleUser = $this->socialite->driver('google')->user();
+        try {
+            $googleUser = $this->socialite->driver('google')->user();
+        } catch (RequestException $e) {
+            return redirect('/')->with([
+                'error' => true,
+                'user'  => null,
+            ]);
+        }
 
-        if ($googleUser->user['domain'] !== config('app.company_domain')) {
-            return redirect('/')->withErrors('Désolé, ton compte n\'as pas été reconnu.<br>' .
-                                             'Seuls les comptes ' . config('app.company_domain') . 'sont autorisés.');
+        if (!isset($googleUser->user['domain']) || $googleUser->user['domain'] !== config('app.company_domain')) {
+            return redirect('/')->with([
+                'error' => true,
+                'user'  => new User([
+                    'first_name' => $googleUser->user['name']['givenName'],
+                    'last_name'  => $googleUser->user['name']['familyName'],
+                    'email'      => $googleUser->getEmail(),
+                ]),
+            ]);
         }
 
         /** @var User $user */
@@ -54,11 +70,12 @@ class RegisterController extends Controller
             'email'      => $googleUser->getEmail(),
         ]);
 
-        if (! $user->exists) {
+        if (!$user->exists) {
             $user->save();
             $user->notify(new AccountLinked());
         }
 
-        return redirect('/')->with(compact('user'));
+
+        return redirect('/')->withUser($user);
     }
 }

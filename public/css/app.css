@@ -52,7 +52,7 @@ body {
 
 h1 {
   font-family: dancing_scriptbold, serif;
-  color: #D70A2E;
+  color: #BC0832;
   align-self: flex-start;
   font-size: 4em;
   font-weight: normal;
@@ -72,7 +72,8 @@ h1 {
     height: 100%;
     padding: 20px 5%;
     display: -webkit-box;
-    display: flex; }
+    display: flex;
+    flex-wrap: wrap; }
     .row .half-col:first-child {
       -webkit-box-align: center;
       align-items: center; }
@@ -80,6 +81,8 @@ h1 {
         margin: 3% auto;
         max-height: 70%;
         max-width: 100%; }
+    .row .half-col:last-child {
+      align-content: flex-start; }
 
 footer {
   display: -webkit-box;
@@ -92,11 +95,41 @@ footer {
 
 .credit {
   font-family: abadi_mt_stdlight, serif;
-  color: #9E0626;
+  color: #BC0832;
   position: fixed;
   font-size: 0.75em;
   bottom: 0.5em;
   right: 1em;
   text-decoration: none; }
+
+.center {
+  text-align: center; }
+
+.btn {
+  display: inline-block;
+  font-family: abadi_mt_stdregular, serif;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 2px solid #BC0832;
+  border-radius: 1px;
+  padding: 7px 20px;
+  color: #BC0832;
+  text-decoration: none; }
+  .btn .icn-gift:before {
+    content: "__";
+    background: url("../img/icon-gift.png") no-repeat;
+    background-size: 0.8em;
+    color: transparent;
+    margin-right: 10px; }
+  .btn:hover {
+    background-color: #BC0832;
+    color: white; }
+    .btn:hover .icn-gift:before {
+      background: url("../img/icon-gift-hover.png") no-repeat;
+      background-size: 0.8em; }
+
+.message {
+  font-family: abadi_mt_stdlight, serif; }
 
 /*# sourceMappingURL=app.css.map */

@@ -13,7 +13,9 @@ return [
     */
 
     'name' => 'Secret Santa',
+
     'company_domain' => env('COMPANY_DOMAIN'),
+    'company_name'   => env('COMPANY_NAME'),
 
     /*
     |--------------------------------------------------------------------------
