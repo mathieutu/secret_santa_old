@@ -8,7 +8,6 @@ use GuzzleHttp\Exception\RequestException;
 use Illuminate\Routing\Controller as BaseController;
 use Laravel\Socialite\Contracts\Factory as Socialite;
 
-
 class RegisterController extends BaseController
 {
     /**

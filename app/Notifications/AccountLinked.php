@@ -34,18 +34,17 @@ class AccountLinked extends Notification
     /**
      * Get the mail representation of the notification.
      *
-     * @param mixed $notifiable
+     * @param \App\Models\User $user
      *
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail(User $user)
     {
         return (new MailMessage)
-            ->line('Ho ! Ho ! Ho !')
-            ->line('Bonjour, '.$user->first_name.',')
-            ->line('J\'ai bien noté ton nom pour le Secret Santa de '.config('app.company_name').'.')
-            ->line('Tu recevras très bientôt une missive avec le nom du collègue à qui tu devras faire un cadeau.')
-            ->line('Merci et à très vite !');
+            ->subject('Te voilà dans la liste Secret Santa ! 🎅')
+            ->line('Bonjour ' . $user->first_name . ',')
+            ->line('J\'ai bien noté ton nom pour le Secret Santa de ' . config('app.company_name') . '.')
+            ->line('Tu recevras très bientôt une missive avec le nom du collègue à qui tu devras faire un cadeau.');
     }
 
     /**

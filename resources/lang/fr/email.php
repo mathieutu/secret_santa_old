@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'hello' => 'Salut !',
-    'regards' => 'Cordialement',
+    'hello' => 'Oh ! Oh ! Oh !',
+    'regards' => 'Merci et à très vite !',
 ];
