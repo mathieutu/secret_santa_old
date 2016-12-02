@@ -140,7 +140,7 @@ $style = [
 
                                         <!-- Salutation -->
                                         <p style="{{ $style['paragraph'] }}">
-                                            {{ trans('email.regards') }},<br>{{ config('app.name') }}
+                                            {{ trans('email.regards') }}<br>{{ config('app.name') }}
                                         </p>
 
                                         <!-- Sub Copy -->

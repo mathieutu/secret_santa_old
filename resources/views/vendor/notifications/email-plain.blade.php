@@ -18,5 +18,5 @@ if (! empty($outroLines)) {
     echo implode("\n", $outroLines), "\n\n";
 }
 
-echo trans('email.regards'), ",\n";
+echo trans('email.regards'), "\n";
 echo config('app.name'), "\n";
