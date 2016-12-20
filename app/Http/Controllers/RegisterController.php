@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Notifications\AccountLinked;
+use Carbon\Carbon;
 use GuzzleHttp\Exception\RequestException;
 use Illuminate\Routing\Controller as BaseController;
 use Laravel\Socialite\Contracts\Factory as Socialite;
@@ -45,6 +46,13 @@ class RegisterController extends BaseController
         try {
             $googleUser = $this->socialite->driver('google')->user();
         } catch (RequestException $e) {
+            return redirect('/')->with([
+                'error' => true,
+                'user'  => null,
+            ]);
+        }
+
+        if (Carbon::now()->gte(Carbon::create(2016, 12, 21))) {
             return redirect('/')->with([
                 'error' => true,
                 'user'  => null,
