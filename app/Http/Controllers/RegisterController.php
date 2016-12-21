@@ -59,7 +59,7 @@ class RegisterController extends BaseController
             ]);
         }
 
-        if (!isset($googleUser->user['domain']) || $googleUser->user['domain'] !== config('app.company_domain')) {
+        if (! isset($googleUser->user['domain']) || $googleUser->user['domain'] !== config('app.company_domain')) {
             return redirect('/')->with([
                 'error' => true,
                 'user'  => new User([
@@ -77,11 +77,10 @@ class RegisterController extends BaseController
             'email'      => $googleUser->getEmail(),
         ]);
 
-        if (!$user->exists) {
+        if (! $user->exists) {
             $user->save();
             $user->notify(new AccountLinked());
         }
-
 
         return redirect('/')->withUser($user);
     }
